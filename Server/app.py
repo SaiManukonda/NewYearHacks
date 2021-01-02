@@ -26,7 +26,6 @@ def Results(typeOfPlace = 'None', location = 'None'):
         curr.append(place.name)
         place.get_details()
         curr.append(place.website)
-        info.append(curr)
         curr.append(place.place_id)
         try:
                 temp = place.photos[0]
@@ -38,6 +37,7 @@ def Results(typeOfPlace = 'None', location = 'None'):
 
         except:
             curr.append('https://emilyshane.org/images/no-image.jpg')
+        info.append(curr)
     return render_template('results.html', data = info, searched2 = searched)
 
 @app.route('/view/<id>')
