@@ -11,6 +11,10 @@ app = Flask(__name__)
 
 @app.route('/')
 def HomePage():
+    return render_template('home.html')
+
+@app.route('/search')
+def Search():
     return render_template('search.html')
 
 @app.route('/results/')
@@ -41,12 +45,17 @@ def Results(typeOfPlace = 'None', location = 'None'):
 
 @app.route('/view/<id>')
 def Results2(id = "None"):
+    times = ['12am','1am','2am','3am', '4am', '5am', '6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm','8pm','9pm','10pm','11pm']
     place = google_places.get_place(id)
     photos2 = []
+    try:
+        places_result = populartimes.get_id(API_KEY, id)['populartimes']
+    except:
+        places_result = []
     for photo in place.photos:
         photo.get(maxheight=50000, maxwidth=50000)
         photos2.append(photo.url)
-    return render_template('view.html', photos = photos2, name = place.name)
+    return render_template('view.html', photos = photos2, name = place.name, results = places_result, time = times, len2 = len(times))
 
 
 

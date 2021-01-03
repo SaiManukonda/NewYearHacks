@@ -24,7 +24,7 @@
         <div class="container"><a class="navbar-brand" href="/">Safe Search</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navbarResponsive"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="/">Search</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/search">Search</a></li>
                     <li class="nav-item"></li>
                 </ul>
             </div>
@@ -43,6 +43,19 @@
     </header>
     <section>
         <div class="container">
+            {%if not data%}
+            <div class="row align-items-center" data-aos="zoom-in-up" data-aos-once="true">
+                <div class="col-lg-6 order-lg-2">
+                    <div class="p-5"><img class="rounded-circle img-fluid" src="https://www.kindpng.com/picc/m/145-1457893_transparent-no-icon-png-no-result-icon-png.png"></div>
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <div class="p-5">
+                        <h2 class="display-4">No data available for your search</h2>
+                        <a class="btn btn-primary" href="/search">Search Again?</a>
+                    </div>
+                </div>
+            </div>
+            {%endif%}
             {%for item in data%}
             <div class="row align-items-center" data-aos="zoom-in-up" data-aos-once="true">
                 <div class="col-lg-6 order-lg-2">

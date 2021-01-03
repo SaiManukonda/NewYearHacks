@@ -33,7 +33,7 @@
     <header class="masthead text-center text-white">
         <div class="masthead-content">
             <div class="container">
-                <h2 class="masthead-subheading mb-0">Title</h2>
+                <h2 class="masthead-subheading mb-0">{{name}}</h2>
             </div>
         </div>
     </header>
@@ -55,22 +55,34 @@
         <div class="container">
             <div class="intro"></div>
             <div class="row articles">
-                <div class="col-sm-6 col-md-4 item" data-aos="zoom-in-up"><a href="#"></a>
-                    <h3 class="name">Monday</h3>
-                    <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, interdum justo suscipit id.</p><a class="action" href="#"></a>
-                </div>
-                <div class="col-sm-6 col-md-4 item" data-aos="zoom-in-up"><a href="#"></a>
-                    <h3 class="name">Monday</h3>
-                    <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, interdum justo suscipit id.</p><a class="action" href="#"></a>
-                </div>
-                <div class="col-sm-6 col-md-4 item" data-aos="zoom-in-up"><a href="#"></a>
-                    <h3 class="name">Monday</h3>
-                    <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, interdum justo suscipit id.</p><a class="action" href="#"></a>
-                </div>
-                <div class="col-sm-6 col-md-4 item" data-aos="zoom-in-up"><a href="#"></a>
-                    <h3 class="name">Monday</h3>
-                    <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, interdum justo suscipit id.</p><a class="action" href="#"></a>
-                </div>
+            {%if results%}
+                {%for item in results%}
+                   <div class="col-sm-6 col-md-4 item" data-aos="zoom-in-up"><a href="#"></a>
+                        <h3 class="name">{{item['name']}}</h3>
+                         {%for i in range(len2)%}
+                            {%if item['data'][i] == 0%}
+                            {%elif item['data'][i] > 0 and item['data'][i] < 30%}
+                            <p class="description" style="color:rgb(0, 255, 13);">{{time[i]}} -- It is safe</p> <br>
+                            {%elif item['data'][i] > 30 and item['data'][i] < 60%}
+                            <p class="description" style="color:rgb(176, 179, 38);">{{time[i]}} -- Be cautious</p> <br>
+                            {%else%}
+                            <p class="description" style="color:red;">{{time[i]}} -- Not safe</p> <br>
+                            {%endif%}
+                         {%endfor%}
+                       
+                     </div>
+                {%endfor%}
+            {%else%}
+            <div class="col-sm-6 col-md-4 item" data-aos="zoom-in-up"><a href="#"></a>
+                <h3 class="name"></h3>
+               
+             </div>
+             <div class="col-sm-6 col-md-4 item" data-aos="zoom-in-up"><a href="#"></a>
+                <h3 class="name">Sorry :(</h3>
+                    <p class="description" style="color:red;">No traffic data is available for this place yet</p>
+               
+             </div>
+            {%endif%}
             </div>
         </div>
     </div>
