@@ -1,10 +1,16 @@
 ## How to try this project
 1. clone the project and make sure your have python and pip installed
+
 2. Go to the 'Server' folder and create a new python file called ' keys.py '
+
 3. In the 'keys.py' file, create a new variable called 'GOOGLE_API_KEY' and put your google places api key there(you can get the key by going to https://developers.google.com/places/web-service/get-api-key)
+
 4.next thing open your command line and cd your way into the server folder
+
 5.then run this command in your commandline 'pip install -r requirements.txt' (this downloads all the libraries required from the project, whose names are stored in the requirements.txt'
+
 6.then run the 'app.py' python file (run this like you would run any of your python files)
+
 7. your output will be something like this
   * Serving Flask app "app" (lazy loading)
   * Environment: production
@@ -17,6 +23,7 @@
   * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
   
 8.Go to whatever link is present after 'Running on', which in this case is 'ttp://127.0.0.1:5000/'
+
 9.Voila! now you can try this web app and if you would like to understand more about this project keep reading
 
 ## Inspiration
