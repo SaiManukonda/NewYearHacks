@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def HomePage():
-    return render_template('home.html')
+    return render_template('search.html')
 
 @app.route('/results/')
 @app.route('/results/<typeOfPlace>/<location>')
@@ -34,7 +34,6 @@ def Results(typeOfPlace = 'None', location = 'None'):
                     curr.append(temp.url)
                 else:
                     curr.append('https://emilyshane.org/images/no-image.jpg')
-
         except:
             curr.append('https://emilyshane.org/images/no-image.jpg')
         info.append(curr)
@@ -48,6 +47,7 @@ def Results2(id = "None"):
         photo.get(maxheight=50000, maxwidth=50000)
         photos2.append(photo.url)
     return render_template('view.html', photos = photos2, name = place.name)
+
 
 
 if __name__ == "__main__":

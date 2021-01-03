@@ -4,92 +4,73 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>results</title>
+    <title>Results</title>
     <link rel="stylesheet" href="/static/assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/static/https://fonts.googleapis.com/css?family=Lora">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora">
     <link rel="stylesheet" href="/static/assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="/static/assets/fonts/ionicons.min.css">
     <link rel="stylesheet" href="/static/assets/css/Article-Clean.css">
     <link rel="stylesheet" href="/static/assets/css/Article-List.css">
-    <link rel="stylesheet" href="/static/assets/css/Features-Boxed.css">
-    <link rel="stylesheet" href="/static/assets/css/Footer-Dark.css">
-    <link rel="stylesheet" href="/static/https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
     <link rel="stylesheet" href="/static/assets/css/Navigation-with-Search.css">
     <link rel="stylesheet" href="/static/assets/css/Simple-Slider.css">
-    <link rel="stylesheet" href="/static/assets/css/styles.css">
 </head>
 
 <body>
-    <nav class="navbar navbar-light navbar-expand-md navigation-clean-search">
-        <div class="container"><a class="navbar-brand" href="#">Zip Safe</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navcol-1">
-                <ul class="nav navbar-nav">
-                    <li class="nav-item"><a class="nav-link active" href="#">About us</a></li>
-                    <li class="nav-item"></li>
+    <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark navbar-custom">
+        <div class="container"><a class="navbar-brand" href="/">Safe Search</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navbarResponsive"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">Search</a></li>
                     <li class="nav-item"></li>
                 </ul>
-                <form class="form-inline mr-auto" target="_self">
-                    <div class="form-group"><label for="search-field"></label><input class="form-control search-field" type="search" id="search-field" name="search"></div>
-                </form><a class="btn btn-light action-button" role="button" href="#">Search</a>
             </div>
         </div>
     </nav>
-    <div class="article-list">
-        <div class="container">
-            <div class="intro">
-                {%if not data%}
-                <h2 class="text-center">No Results</h2>
-                {%else%}
-                   <h2 class="text-center">Top Results for {{searched2}}</h2>
-                   <p class="text-center">Scroll to view results</p>
-                {%endif%}
-            </div>
-            <div class="row articles">
-            {%if data%}
-                {%for place in data%}
-                <div class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid" src={{place[3]}}></a>
-                    <h3 class="name">{{place[0]}}</h3>
-                    <p class="description"> {{place[0]}}</p><a class="action" href="/view/{{place[2]}}"><i class="fa fa-arrow-circle-right"></i></a>
-                </div>
-                {%endfor%}
-            {%endif%}
+    <header class="masthead text-center text-white">
+        <div class="masthead-content">
+            <div class="container">
+                <h2 class="swing animated masthead-subheading mb-0">Your Results</h2>
             </div>
         </div>
-    </div>
-    <div class="footer-dark">
-        <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6 col-md-3 item">
-                        <h3>Services</h3>
-                        <ul>
-                            <li><a href="#">Web design</a></li>
-                            <li><a href="#">Development</a></li>
-                            <li><a href="#">Hosting</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-6 col-md-3 item">
-                        <h3>About</h3>
-                        <ul>
-                            <li><a href="#">Company</a></li>
-                            <li><a href="#">Team</a></li>
-                            <li><a href="#">Careers</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6 item text">
-                        <h3>Company Name</h3>
-                        <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut vehicula rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo.</p>
-                    </div>
-                    <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
+        <div class="bg-circle-1 bg-circle"></div>
+        <div class="bg-circle-2 bg-circle"></div>
+        <div class="bg-circle-3 bg-circle"></div>
+        <div class="bg-circle-4 bg-circle"></div>
+    </header>
+    <section>
+        <div class="container">
+            {%for item in data%}
+            <div class="row align-items-center" data-aos="zoom-in-up" data-aos-once="true">
+                <div class="col-lg-6 order-lg-2">
+                    <div class="p-5"><img class="rounded-circle img-fluid" src="{{item[3]}}"></div>
                 </div>
-                <p class="copyright">Company Name © 2017</p>
+                <div class="col-lg-6 order-lg-1">
+                    <div class="p-5">
+                        <h2 class="display-4">{{item[0]}}</h2>
+                        <a class="btn btn-primary" href="/view/{{item[2]}}">Safe Hours</a>
+                    </div>
+                </div>
             </div>
-        </footer>
-    </div>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+            {%endfor%}
+        </div>
+    </section>
+    <section></section>
+    <section></section>
+    <footer class="py-5 bg-black">
+        <div class="container">
+            <p class="text-center text-white m-0 small">Have a Safe Search</p>
+        </div>
+    </footer>
+    <script src="/static/assets/js/jquery.min.js"></script>
+    <script src="/static/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/static/assets/js/bs-init.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
-    <script src="assets/js/Simple-Slider.js"></script>
+    <script src="/static/assets/js/Simple-Slider.js"></script>
 </body>
 
 </html>
