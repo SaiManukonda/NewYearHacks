@@ -7,7 +7,8 @@
 
 4.next thing open your command line and cd your way into the server folder
 
-5.then run this command in your commandline 'pip install -r requirements.txt' (this downloads all the libraries required from the project, whose names are stored in the requirements.txt'
+5.then run this command in your commandline 'pip install -r requirements.txt' (this downloads all the libraries required from the project, whose names are stored in the requirements.txt')
+  ** you might get an error when you run this command, in that case go to the requirements.txt and remove the one that links to a github page, this repo downloads that github requirement locally so you shouldn't have a problem. If you do have a problem then run the command 'pip install .' in your server folder.(ignore this step if you get no errors in the first place).
 
 6.then run the 'app.py' python file (run this like you would run any of your python files)
 
@@ -22,7 +23,7 @@
   * Debugger PIN: 291-778-880
   * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
   
-8.Go to whatever link is present after 'Running on', which in this case is 'ttp://127.0.0.1:5000/'
+8.Go to whatever link is present after 'Running on', which in this case is 'http://127.0.0.1:5000/'
 
 9.Voila! now you can try this web app and if you would like to understand more about this project keep reading
 
